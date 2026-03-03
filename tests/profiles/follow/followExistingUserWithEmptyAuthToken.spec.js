@@ -8,13 +8,11 @@ test(`Follow profile for existing user with empty auth token`, async ({
   userRequests,
 }) => {
   const user1 = registeredUsers[0];
-  user1['token'] = '';
-  
   const user2Request = userRequests[1];
 
   const profilesApi = new ProfilesApi(user2Request);
 
-  const response = await profilesApi.followProfile(user1.username);
+  const response = await profilesApi.followProfile(user1.username, '');
 
   await profilesApi.assertUnauthorizedResponseCode(response);
 });

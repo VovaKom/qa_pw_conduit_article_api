@@ -9,8 +9,6 @@ test('Create article with all fields', async ({
     articleWithOneTag,
     registeredUser.token,
   );
-
-  console.log(JSON.stringify({ article: articleWithOneTag }));
   
   await articlesApi.assertSuccessResponseCode(response);
   await articlesApi.assertTitle(response, articleWithOneTag.title);

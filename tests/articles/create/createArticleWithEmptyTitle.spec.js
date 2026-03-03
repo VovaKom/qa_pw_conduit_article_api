@@ -1,7 +1,7 @@
 import { EMPTY_ARTICLE_TITLE } from '../../../src/constants/authErrorMessages';
 import { test } from '../../_fixtures/fixtures';
 
-test('Create article with empty body', async ({
+test('Create article with empty title', async ({
   registeredUser,
   articleWithoutTags,
   articlesApi,

@@ -1,13 +1,10 @@
-import { EMPTY_ARTICLE_BODY } from '../../../src/constants/authErrorMessages';
 import { test } from '../../_fixtures/fixtures';
 
-test('Create article with empty body', async ({
+test('Create article with empty tags', async ({
   registeredUser,
   articleWithoutTags,
   articlesApi,
 }) => {
-  articleWithoutTags['body'] = '';
-
   const response = await articlesApi.createArticle(
     articleWithoutTags,
     registeredUser.token,
@@ -20,4 +17,5 @@ test('Create article with empty body', async ({
     articleWithoutTags.description
   );
   await articlesApi.assertBody(response, articleWithoutTags.body);
+  await articlesApi.assertTags(articleWithoutTags.tagList)
 });

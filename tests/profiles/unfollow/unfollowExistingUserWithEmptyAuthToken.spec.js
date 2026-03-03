@@ -16,6 +16,9 @@ test(`Unfollow profile for existing user with empty auth token`, async ({
   await profilesApi.assertSuccessResponseCode(followResponse);
 
   user1['token'] = '';
-  const unfollowResponse = await profilesApi.unfollowProfile(user1.username);
+  const unfollowResponse = await profilesApi.unfollowProfile(
+    user1.username,
+    ''
+  );
   await profilesApi.assertUnauthorizedResponseCode(unfollowResponse);
 });
