@@ -12,10 +12,12 @@ test(`Unfollow profile for existing user with empty auth token`, async ({
 
   const profilesApi = new ProfilesApi(user2Request);
 
-  const followResponse = await profilesApi.followProfile(user1.username);
+  const followResponse = await profilesApi.followProfile(
+    user1.username,
+    registeredUsers[1].token
+  );
   await profilesApi.assertSuccessResponseCode(followResponse);
 
-  user1['token'] = '';
   const unfollowResponse = await profilesApi.unfollowProfile(
     user1.username,
     ''

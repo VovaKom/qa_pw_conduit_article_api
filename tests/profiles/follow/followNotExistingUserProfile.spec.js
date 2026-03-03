@@ -8,7 +8,10 @@ test(`Follow profile for not existing user by other user`, async ({
     username: 'not-existing-user',
   };
 
-  const response = await profilesApi.followProfile(notExistingUser.username);
+  const response = await profilesApi.followProfile(
+    notExistingUser.username,
+    registeredUser.token,
+  );
 
   await profilesApi.assertNotFoundResponseCode(response);
 });
